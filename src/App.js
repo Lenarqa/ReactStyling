@@ -1,45 +1,50 @@
-import React, { useState } from "react";
-import NewGoal from "./components/NewGoal/NewGoal";
-import Goals from "./components/Goals/Goals";
+import React, { useState } from 'react';
 
-const INITIAL_GOALS = [
-  {
-    id: 1,
-    goal: "reed 10 books",
-  },
-  {
-    id: 2,
-    goal: "buy nintendo",
-  },
-  {
-    id: 3,
-    goal: "finish react course",
-  },
-];
+import CourseGoalList from './components/CourseGoals/CourseGoalList/CourseGoalList';
+import CourseInput from './components/CourseGoals/CourseInput/CourseInput';
+import './App.css';
 
-function App() {
-  const [goals, setGoals] = useState(INITIAL_GOALS);
+const App = () => {
+  const [courseGoals, setCourseGoals] = useState([
+    { text: 'Do all exercises!', id: 'g1' },
+    { text: 'Finish the course!', id: 'g2' }
+  ]);
 
-  const saveEnteredGoal = (enteredGoal) => {
-    setGoals((prevState) => {
-      return [enteredGoal, ...prevState];
+  const addGoalHandler = enteredText => {
+    setCourseGoals(prevGoals => {
+      const updatedGoals = [...prevGoals];
+      updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
+      return updatedGoals;
     });
   };
-  
-  const deleteGoalFromState = (objectId) => {
-    setGoals((prevState) => {
-      return prevState.filter((goal) => {
-        return goal.id !== objectId;
-      });
+
+  const deleteItemHandler = goalId => {
+    setCourseGoals(prevGoals => {
+      const updatedGoals = prevGoals.filter(goal => goal.id !== goalId);
+      return updatedGoals;
     });
+  };
+
+  let content = (
+    <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
+  );
+
+  if (courseGoals.length > 0) {
+    content = (
+      <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
+    );
   }
 
   return (
     <div>
-      <NewGoal onSaveEnteredGoal={saveEnteredGoal} />
-      <Goals items={goals} onDeleteGoalFromState={deleteGoalFromState}/>
+      <section id="goal-form">
+        <CourseInput onAddGoal={addGoalHandler} />
+      </section>
+      <section id="goals">
+        {content}
+      </section>
     </div>
   );
-}
+};
 
 export default App;
