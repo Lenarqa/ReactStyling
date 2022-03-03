@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ReactStyling/static/css/main.ea543b48.chunk.css",
+    "main.js": "/ReactStyling/static/js/main.4588fbed.chunk.js",
+    "main.js.map": "/ReactStyling/static/js/main.4588fbed.chunk.js.map",
+    "runtime-main.js": "/ReactStyling/static/js/runtime-main.1de04788.js",
+    "runtime-main.js.map": "/ReactStyling/static/js/runtime-main.1de04788.js.map",
+    "static/js/2.6963620b.chunk.js": "/ReactStyling/static/js/2.6963620b.chunk.js",
+    "static/js/2.6963620b.chunk.js.map": "/ReactStyling/static/js/2.6963620b.chunk.js.map",
+    "index.html": "/ReactStyling/index.html",
+    "static/css/main.ea543b48.chunk.css.map": "/ReactStyling/static/css/main.ea543b48.chunk.css.map",
+    "static/js/2.6963620b.chunk.js.LICENSE.txt": "/ReactStyling/static/js/2.6963620b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1de04788.js",
+    "static/js/2.6963620b.chunk.js",
+    "static/css/main.ea543b48.chunk.css",
+    "static/js/main.4588fbed.chunk.js"
+  ]
+}
